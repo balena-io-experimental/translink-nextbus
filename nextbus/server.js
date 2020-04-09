@@ -1,4 +1,5 @@
 const http = require('http');
+const request = require('requests');
 
 const hostname = '0.0.0.0';
 const stop = process.env.BUSSTOP;
@@ -13,10 +14,18 @@ function buildTranslinkQuery() {
 }
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  msg = buildTranslinkQuery();
-  res.end(msg);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    query = buildTranslinkQuery();
+    request(query, { 'json': 'true' }, (err, res, body) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        console.log(body.url);
+        res.end(body.url);
+        console.log(body.explanation);
+    });
 });
 
 server.listen(port, hostname, () => {

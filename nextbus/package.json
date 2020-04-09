@@ -13,5 +13,8 @@
     "url": "git+https://github.com/balena-io-playground/translink-nextbus"
   },
   "author": "Hugh Brown <hugh@balena.io>",
-  "homepage": "https://github.com/balena-io-playground/translink-nextbus"
+  "homepage": "https://github.com/balena-io-playground/translink-nextbus",
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
 }

@@ -1,0 +1,9 @@
+version: '2'
+services:
+  nextbus:
+    build: ./nextbus
+    restart: on-failure
+    network_mode: host
+    environment:
+      - APIKEY
+      - BUSSTOP

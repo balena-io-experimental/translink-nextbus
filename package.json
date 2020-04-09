@@ -1,0 +1,17 @@
+{
+  "name": "translink-nextbus",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "description": "A Balena playground project to display the next bus times for Translink, the public transit service of Metro Vancouver, British Columbia, Canada.",
+  "keywords": [
+    "translink",
+    "vancouver"
+  ],
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balena-io-playground/translink-nextbus"
+  },
+  "author": "Hugh Brown <hugh@balena.io>",
+  "homepage": "https://github.com/balena-io-playground/translink-nextbus"
+}

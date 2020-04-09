@@ -8,8 +8,8 @@ const apikey = process.env.APIKEY;
 const translinkUrl = 'https://api.translink.ca/RTTIAPI/V1/stops/53620/estimates?apiKey=$APIKEY Accept:application/JSON'
 
 function buildTranslinkQuery() {
-  const query = 'https://api.translink.ca/RTTIAPI/V1/stops/' + stop + '/estimates?apiKey' + apikey + ' Accept: application/JSON';
-  return query;
+    const query = 'https://api.translink.ca/RTTIAPI/V1/stops/' + stop + '/estimates?apiKey' + apikey + ' Accept: application/JSON';
+    return query;
 
 }
 
@@ -29,5 +29,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://${hostname}:${port}/`);
 });

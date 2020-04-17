@@ -17,9 +17,7 @@ function buildTranslinkQuery() {
 
 }
 
-console.log('Hello, world!');
-
-(async () => {
+async function makeTranslinkQuery() {
   try {
     req = buildTranslinkQuery()
     console.log(req);
@@ -29,19 +27,24 @@ console.log('Hello, world!');
       }
     });
     data = JSON.parse(response.body);
-    console.log(response.body);
-    console.log(data);
+    console.log('Got a response!')
+    // console.log(response.body);
+    // console.log(data);
   } catch (error) {
     console.log(error.response.body);
   }
-})();
+}
 
+console.log('Hello, world!');
+
+makeTranslinkQuery();
 
 app.get('/', function (req, res) {
   res.render('index.html');
 });
 
 app.post('/', function (req, res) {
+  makeTranslinkQuery();
   res.render('index.html');
 });
 app.listen(port, () => console.log(`Server running`));

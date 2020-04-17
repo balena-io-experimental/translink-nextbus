@@ -41,5 +41,7 @@ app.get('/', function (req, res) {
   res.render('index.html');
 });
 
+app.post('/', function (req, res) {
+  res.render('index.html');
 });
 app.listen(port, () => console.log(`Server running`));

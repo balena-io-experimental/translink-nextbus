@@ -1,9 +1,14 @@
-const http = require('http');
 const got = require('got');
+const express = require('express');
+const app = express();
 
-const hostname = '0.0.0.0';
-const stop = process.env.BUSSTOP;
+// Enable HTML template middleware
+app.engine('html', require('ejs').renderFile);
+
 const port = 3000;
+const hostname = '0.0.0.0';
+
+const stop = process.env.BUSSTOP;
 const apikey = process.env.APIKEY;
 
 function buildTranslinkQuery() {
@@ -32,15 +37,9 @@ console.log('Hello, world!');
 })();
 
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  // res.write('Hello, world!');
-  res.write(JSON.stringify(data));
-  res.end();
+app.get('/', function (req, res) {
+  res.render('index.html');
 });
 
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
 });
+app.listen(port, () => console.log(`Server running`));
